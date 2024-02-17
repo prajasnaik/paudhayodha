@@ -1,7 +1,7 @@
 import numpy as np
 from PIL import Image
 import streamlit as st
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 from plant_care_tips import plant_care_tips, class_code_to_label, label_to_name
 
 @st.cache_resource()
