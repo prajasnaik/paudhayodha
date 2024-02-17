@@ -5,7 +5,7 @@ import streamlit as st
 from keras.api._v2.keras.models import load_model
 from plant_care_tips import plant_care_tips, class_code_to_label, label_to_name
 
-@st.cache_resource()
+@st.cache_resource(ttl=3600)
 def load_plant_disease_model():
     return load_model("./assets/resent_plant_village_final.h5") 
 
