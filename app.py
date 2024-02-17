@@ -1,3 +1,4 @@
+import os
 import numpy as np
 from PIL import Image
 import streamlit as st
@@ -6,7 +7,7 @@ from plant_care_tips import plant_care_tips, class_code_to_label, label_to_name
 
 @st.cache_resource()
 def load_plant_disease_model():
-    return load_model("./assets/resent_plant_village_final.h5")
+    return load_model("./assets/resent_plant_village_final.h5") 
 
 
 def process_file(uploaded_file):
@@ -38,58 +39,11 @@ def main():
         layout="wide", 
         initial_sidebar_state="expanded"
     )
-    st.markdown(
-        """
-        <style>
-            body {
-                background-color: #F0EDE5;
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-            }
 
-            header {
-                background-color: #4C3A28;
-                color: #FFF;
-                padding: 20px;
-                text-align: center;
-            }
-
-            nav {
-                background-color: #6E4C37;
-                padding: 10px;
-                text-align: center;
-            }
-
-            nav a {
-                color: #FFF;
-                text-decoration: none;
-                padding: 10px 20px;
-            }
-
-            nav a:hover {
-                background-color: #8D725B;
-            }
-
-            main {
-                padding: 20px;
-            }
-
-            footer {
-                background-color: #4C3A28;
-                color: #FFF;
-                padding: 10px;
-                text-align: center;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-    st.title('PodhaYodha :potted_plant:')
+    st.title('PaudhaYodha :potted_plant:')
     st.subheader('Hello, Learn the best way to treat your favourite plants! :wave:')
-    st.write("PodhaYodha is a web app that helps you identify and treat your plants. It uses machine learning to identify the plant and provide you with the best care tips. Just upload a picture of your plant and let PodhaYodha do the rest!")
-    st.write("Upload a picture of your plant and let PodhaYodha identify it for you. Once the plant is identified, PodhaYodha will provide you with the best care tips for your plant. It will also provide you with the best plant shops near you.")
+    st.write("PaudhaYodha is a web app that helps you identify and treat your plants. It uses machine learning to identify the plant and provide you with the best care tips. Just upload a picture of your plant and let PaudhaYodha do the rest!")
+    st.write("Upload a picture of your plant and let PaudhaYodha identify it for you. Once the plant is identified, PaudhaYodha will provide you with the best care tips for your plant.")
 
     model = load_plant_disease_model()
 
