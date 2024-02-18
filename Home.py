@@ -1,3 +1,4 @@
+import time
 import numpy as np
 from PIL import Image
 import streamlit as st
@@ -49,7 +50,7 @@ def main():
     model = load_plant_disease_model()
 
     # setting up image input
-    option = st.selectbox("Select an option:", ("Take a photo", "Upload an image"))
+    option = st.selectbox("Select an option:", ("Take a photo", "Upload an image", "Try a Demo"))
 
     if option == "Take a photo":
         # Use webcam to capture image
@@ -61,13 +62,24 @@ def main():
 
     elif option == "Upload an image":
         # Allow user to upload image
-        uploaded_file = st.file_uploader("Choose an image:", type=["jpg", "png", "jpeg", "heic", "webp"])
+        uploaded_file = st.file_uploader("Choose an image:", type=["jpg", "jpeg", "png", "heic", "webp"])
         if uploaded_file is not None:
             image = process_file(uploaded_file)
             st.image(image)
             prediction_write_up = process_image(model, image)
             st.write(prediction_write_up)
 
+    elif option == 'Try a Demo':
+        image = np.array(Image.open("./assets/apple_scab.jpeg"))
+        st.image(image)
+
+        st.write("Demo image: Apple with Scab")
+        with st.spinner('predicting...'):
+            time.sleep(0.8)
+
+        st.write("#### Prediction:")
+        prediction_write_up = process_image(model, image)
+        st.write(prediction_write_up)
 
 if __name__ == "__main__":
     main()
