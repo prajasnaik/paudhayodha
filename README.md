@@ -6,3 +6,13 @@ and provide tailored recommendations, including Do's and Dont's for optimal care
 and gardeners enhance crop yield and plant quality.
 
 The application is created by [Jeet Shah](https://github.com/jeetsh4h) and [Aniket Khetan](https://github.com/aniketkhetan).
+
+Way to run the application locally:
+```bash
+git clone https://github.com/jeetsh4h/paudhayodha.git
+cd paudhayodha
+
+python -m venv .venv
+pip install -r requirements.txt -y
+python -m streamlit run Home.py
+```

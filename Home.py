@@ -1,4 +1,3 @@
-import os
 import numpy as np
 from PIL import Image
 import streamlit as st
@@ -7,7 +6,7 @@ from plant_care_tips import plant_care_tips, class_code_to_label, label_to_name
 
 @st.cache_resource(ttl=3600)
 def load_plant_disease_model():
-    return load_model("./assets/resent_plant_village_final.h5") 
+    return load_model("./assets/resent_plant_village_final.h5")
 
 
 def process_file(uploaded_file):
@@ -37,9 +36,11 @@ def main():
         page_title="PaudhaYodha", 
         page_icon=":potted_plant:", 
         layout="wide", 
-        initial_sidebar_state="expanded"
+        initial_sidebar_state="auto"
     )
-
+    
+    st.sidebar.success('How to be a yodha to your paudha :potted_plant:')
+    
     st.title('PaudhaYodha :potted_plant:')
     st.subheader('Hello, Learn the best way to treat your favourite plants! :wave:')
     st.write("PaudhaYodha is a web app that helps you identify and treat your plants. It uses machine learning to identify the plant and provide you with the best care tips. Just upload a picture of your plant and let PaudhaYodha do the rest!")
