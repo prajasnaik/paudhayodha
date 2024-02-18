@@ -75,7 +75,7 @@ def main():
 
         st.write("Demo image: Apple with Scab")
         with st.spinner('predicting...'):
-            time.sleep(0.8)
+            time.sleep(1.0)
 
         st.write("#### Prediction:")
         prediction_write_up = process_image(model, image)
