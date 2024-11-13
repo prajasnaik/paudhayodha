@@ -36,7 +36,7 @@ class_code_to_label = {
     34: 'Tomato___Leaf_Mold',
     35: 'Tomato___Spider_mites Two-spotted_spider_mite',
     36: 'Pepper,_bell___Bacterial_spot',
-    37: 'Corn_(maize)___healthy',
+    37: 'Corn_(maize)___hehy',
 }
 
 label_to_name = {
